@@ -4,7 +4,7 @@ Display GitHub contributions in Sveltekit
 ![image](https://github.com/cnoid/svelte-github-contrib/assets/10182309/0ec03dd6-6520-490e-8a10-acd85aac2549)
 
 
-Runs using [GitHub Contributions API](https://github.com/mattcroat/github-contributions-api) - Dockerfile is in this repo.
+Runs using [GitHub Contributions API](https://github.com/mattcroat/github-contributions-api) - Dockerfile is in this repo if you want to run it containerized.
 
 
 Usage:
