@@ -4,7 +4,7 @@ Display GitHub contributions in Sveltekit
 ![image](https://github.com/cnoid/svelte-github-contrib/assets/10182309/0ec03dd6-6520-490e-8a10-acd85aac2549)
 
 
-Runs using [GitHub Contributions API](https://github.com/mattcroat/github-contributions-api) - Dockerfile is in this repo if you want to run it containerized.
+Runs using [GitHub Contributions API](https://github.com/mattcroat/github-contributions-api) - Dockerfile is in this repo if you want to run it containerized, just place it in the folder after cloning and run docker build.
 
 
 Usage:
@@ -12,6 +12,8 @@ Usage:
 
 ```js
 <script>
+  <!-- The rest of your imports and such -->
+  import { onMount } from 'svelte';
   import GitHubTable from '$lib/GitHubTable.svelte';
 
   let contributions = [];
@@ -30,7 +32,25 @@ Usage:
   });
 </script>
 ```
-Feel free to remove error report.
+
+No error handling:
+
+```js
+<script>
+  <!-- The rest of your imports and such -->
+  import { onMount } from 'svelte';
+  import GitHubTable from '$lib/GitHubTable.svelte';
+
+  let contributions = [];
+
+  onMount(async () => {
+    const response = await fetch('http://172.91.65.8:5172/cnoid/2023');
+    if (response.ok) {
+      contributions = await response.json();
+    }
+  });
+</script>
+```
 
 Simply insert where you want it:
 `<GitHubTable {contributions} />`
