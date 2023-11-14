@@ -44,7 +44,7 @@ No error handling:
   let contributions = [];
 
   onMount(async () => {
-    const response = await fetch('http://172.91.65.8:5172/cnoid/2023');
+    const response = await fetch('https://yourapi.com/user/year');
     if (response.ok) {
       contributions = await response.json();
     }
