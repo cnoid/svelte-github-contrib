@@ -8,6 +8,7 @@ Runs using [GitHub Contributions API](https://github.com/mattcroat/github-contri
 
 
 Usage:
+
 Step 1: Pick your poison
 
 Step 2: Download the version that goes with what you decided on.
