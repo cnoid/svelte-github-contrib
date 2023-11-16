@@ -14,6 +14,8 @@ Step 2: Download the version that goes with what you decided on.
 
 Some notes about it: contrib-api uses GraphQL (which means getting a token), while Matia's version uses scraping with SvelteKit. It's only a matter of preference as both return JSON. The scraper returns all days of the year, however, while the GraphQL updates in the same way Github profile does.
 
+The scraper is easiest because you can simply use the one [he is hosting on Vercel](https://gh-contributions-api.vercel.app/), while the other is more reliable as it's using Github's GraphQL.
+
 
 ### [contrib-api](https://github.com/cnoid/contrib-api)
 
@@ -30,7 +32,7 @@ Some notes about it: contrib-api uses GraphQL (which means getting a token), whi
 
   onMount(async () => {
     try {
-      const response = await fetch('https://api.ei.vin/d/d7f5af4/api/github-contributions?userName=cnoid');
+      const response = await fetch('https://example.com/api/contrib?userName=yourusername');
       if (response.ok) {
         contributions = await response.json();
       } else {
@@ -54,7 +56,7 @@ Or, no error logging:
 
   onMount(async () => {
     try {
-      const response = await fetch('https://api.ei.vin/d/d7f5af4/api/github-contributions?userName=cnoid');
+      const response = await fetch('https://example.com/api/contrib?userName=yourusername');
       if (response.ok) {
         contributions = await response.json();
       } 
@@ -80,7 +82,7 @@ Insert into your header:
 
   onMount(async () => {
     try {
-      const response = await fetch('https://yourapi.com/user/year');
+      const response = await fetch('https://example.com/user/year');
       if (response.ok) {
         contributions = await response.json();
       } else {
@@ -104,7 +106,7 @@ No error handling:
   let contributions = [];
 
   onMount(async () => {
-    const response = await fetch('https://yourapi.com/user/year');
+    const response = await fetch('https://example.com/user/year');
     if (response.ok) {
       contributions = await response.json();
     }
