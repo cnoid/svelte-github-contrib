@@ -8,8 +8,68 @@ Runs using [GitHub Contributions API](https://github.com/mattcroat/github-contri
 
 
 Usage:
+Step 1: Pick your poison
+
+Step 2: Download the version that goes with what you decided on.
+
+Some notes about it: contrib-api uses GraphQL (which means getting a token), while Matia's version uses scraping with SvelteKit. It's only a matter of preference as both return JSON. The scraper returns all days of the year, however, while the GraphQL updates in the same way Github profile does.
 
 
+### [contrib-api](https://github.com/cnoid/contrib-api)
+
+<details>
+  <summary>Expand</summary>
+
+  
+  ```js
+  <!-- The rest of your header/imports -->
+  import GitHubTable from '$lib/GitHubTable.svelte';
+  import { onMount } from 'svelte';
+
+  let contributions = [];
+
+  onMount(async () => {
+    try {
+      const response = await fetch('https://api.ei.vin/d/d7f5af4/api/github-contributions?userName=cnoid');
+      if (response.ok) {
+        contributions = await response.json();
+      } else {
+        console.error('Error fetching contributions:', response.status);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
+  });
+</script>
+```
+
+Or, no error logging:
+
+  ```js
+  <!-- The rest of your header/imports -->
+  import GitHubTable from '$lib/GitHubTable.svelte';
+  import { onMount } from 'svelte';
+
+  let contributions = [];
+
+  onMount(async () => {
+    try {
+      const response = await fetch('https://api.ei.vin/d/d7f5af4/api/github-contributions?userName=cnoid');
+      if (response.ok) {
+        contributions = await response.json();
+      } 
+  });
+</script>
+```
+</details>
+
+
+### [Matia's SvelteKit scraper](https://github.com/mattcroat/github-contributions-api)
+
+<details>
+  <summary>Expand</summary>
+Insert into your header:
+  
 ```js
 <script>
   <!-- The rest of your imports and such -->
@@ -51,6 +111,9 @@ No error handling:
   });
 </script>
 ```
+</details>
+
+Step 2:
 
 Simply insert where you want it:
 `<GitHubTable {contributions} />`
