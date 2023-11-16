@@ -113,7 +113,7 @@ No error handling:
 ```
 </details>
 
-Step 2:
+Step 3:
 
 Simply insert where you want it:
 `<GitHubTable {contributions} />`
