@@ -1,6 +1,5 @@
 <script>
   export let contributions = [];
-
   // Calculate weeks. 53x7 (-1 day)
   let requiredWeeks = Math.ceil(contributions.length / 7);
   // Dynamic array (hopefully)
