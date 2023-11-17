@@ -3,9 +3,11 @@ Display GitHub contributions in Sveltekit
 
 <details>
   <summary>Matia's scraper</summary>
-</details>
+
 ![image](https://github.com/cnoid/svelte-github-contrib/blob/4abe1c1c3c0c5991707d8d5e19004466d517a3fe/Screenshot%202023-11-14%20144156.png)
+
 </details>
+
 
 ![image](https://github.com/cnoid/svelte-github-contrib/blob/6f6358db6157362efb4561744e1ce5a9b988b23b/contrib-api.png)
 
