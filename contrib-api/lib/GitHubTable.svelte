@@ -1,21 +1,21 @@
 <script>
   export let contributions = [];
-  // 53 week array with additional 7 day array.
-  let weeks = Array.from({ length: 53 }, () => Array(7).fill(null));
 
-  // Populates the weeks
-  contributions.forEach((contribution, index) => {
-    const weekIndex = Math.floor(index / 7);
-    const dayIndex = index % 7;
-    weeks[weekIndex][dayIndex] = contribution;
-  });
+// Calculate the required number of weeks
+let requiredWeeks = Math.ceil(contributions.length / 7);
+// Week array
+let weeks = Array.from({ length: requiredWeeks }, () => Array(7).fill(null));
+// Populate the weeks
+contributions.forEach((contribution, index) => {
+  const weekIndex = Math.floor(index / 7);
+  const dayIndex = index % 7;
+  weeks[weekIndex][dayIndex] = contribution;
+});
 
-  // Calculate the total contributions
-  $: totalContributions = contributions.reduce((total, contribution) => {
-    return total + (contribution?.count || 0);
-  }, 0);
-  
-
+// Calculate the total contributions
+$: totalContributions = contributions.reduce((total, contribution) => {
+  return total + (contribution?.count || 0);
+}, 0);
 </script>
 
 <style>
