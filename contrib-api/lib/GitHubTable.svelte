@@ -112,28 +112,32 @@
 
 <div class="github-contributions">
   <div class="contributions-header">GitHub contributions this year: {totalContributions}</div>
-    <div class="contributions-container">
-      <div class="day-labels">
-        <span></span>
-        <span>Mon</span>
-        <span></span> <!-- Spacing for alignment -->
-        <span>Wed</span>
-        <span></span> <!-- Spacing for alignment -->
-        <span>Fri</span>
-      </div>
-         <div class="contributions-grid">
-          {#each contributions as day}
-         <div class="contribution-cell level-{day?.level || 0}"
-             title="{day?.count} contributions on {day?.month} {day?.day}"></div>
-             {/each}
+  <div class="contributions-container">
+    <div class="day-labels">
+      <span>Mon</span>
+      <span>Wed</span>
+      <span>Fri</span>
+    </div>
+
+    {#each weeks as week}
+      <div class="week-container">
+        {#each week as contribution}
+          <div class="contribution-cell level-{contribution?.level || 0}"
+               title="{contribution?.count || 0} contributions on {contribution?.month || ''} {contribution?.day || ''}">
           </div>
+        {/each}
+      </div>
+    {/each}
+  </div>
+
   <div class="legend">
     <div class="legend-item">
-      <div class="legend-color level-0"></div><span>&nbsp;&nbsp;Less</span>
-      </div>
-        <div class="legend-item">
-          <div class="legend-color level-4"></div><span>&nbsp;More</span>
-        </div>
-      </div>
+      <div class="legend-color level-0"></div>
+      <span>Less</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color level-4"></div>
+      <span>More</span>
+    </div>
   </div>
 </div>
