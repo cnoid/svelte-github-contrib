@@ -20,7 +20,7 @@ Step 1: Pick your poison
 
 Step 2: Download the version that goes with what you decided on.
 
-Some notes about it: contrib-api uses GraphQL (which means getting a token), while Matia's version uses scraping with SvelteKit. It's only a matter of preference as both return JSON. The scraper returns all days of the year, however, while the GraphQL updates in the same way Github profile does.
+Some notes about it: contrib-api uses GraphQL (which means getting a token), while Matia's version uses scraping with SvelteKit. It's only a matter of preference as both return JSON. The scraper returns all days of the year, however, while the GraphQL updates in the same way Github profile does. (currentdate - 370 days)
 
 The scraper is easiest because you can simply use the one [he is hosting on Vercel](https://gh-contributions-api.vercel.app/), while the other is more reliable as it's using Github's GraphQL.
 
