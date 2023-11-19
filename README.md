@@ -37,43 +37,49 @@ export const contributionsStore = writable([]);
 ```
   
   ```js
-  <!-- The rest of your header/imports -->
-  import GitHubTable from '$lib/GitHubTable.svelte';
-  import { onMount } from 'svelte';
-
-  let contributions = [];
-
-  onMount(async () => {
-    try {
-      const response = await fetch('https://example.com/api/contrib?userName=yourusername');
-      if (response.ok) {
-        contributions = await response.json();
-      } else {
-        console.error('Error fetching contributions:', response.status);
+<script>
+// Remember your other imports
+import GitHubTable from '$lib/GitHubTable.svelte';
+import { contributionsStore } from '$lib/store.ts';
+import { onMount } from 'svelte';
+  
+    onMount(async () => {
+      try {
+        // Remember to replace the URL with your API
+        const response = await fetch('https://example.com/api/contrib?userName=yourgithubusername');
+        if (response.ok) {
+          const data = await response.json();
+          contributionsStore.set(data); // Update the store
+        } else {
+          console.error('Error fetching contributions:', response.status);
+        }
+      } catch (error) {
+        console.error('Network error:', error);
       }
-    } catch (error) {
-      console.error('Network error:', error);
-    }
-  });
+    });
+// The rest of your script tag
 </script>
 ```
 
 Or, no error logging:
 
   ```js
-  <!-- The rest of your header/imports -->
-  import GitHubTable from '$lib/GitHubTable.svelte';
-  import { onMount } from 'svelte';
-
-  let contributions = [];
-
-  onMount(async () => {
-    try {
-      const response = await fetch('https://example.com/api/contrib?userName=yourusername');
-      if (response.ok) {
-        contributions = await response.json();
-      } 
-  });
+<script>
+// Remember your other imports
+import GitHubTable from '$lib/GitHubTable.svelte';
+import { contributionsStore } from '$lib/store.ts';
+import { onMount } from 'svelte';
+  
+    onMount(async () => {
+      try {
+        // Remember to replace the URL with your API
+        const response = await fetch('https://example.com/api/contrib?userName=yourgithubusername');
+        if (response.ok) {
+          const data = await response.json();
+          contributionsStore.set(data); // Update the store
+        } 
+    });
+// The rest of your script tag
 </script>
 ```
 </details>
