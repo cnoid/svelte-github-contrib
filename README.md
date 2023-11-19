@@ -82,6 +82,13 @@ import { onMount } from 'svelte';
 // The rest of your script tag
 </script>
 ```
+
+Step 3:
+
+Simply insert where you want it:
+`<GitHubTable />`
+
+
 </details>
 
 
@@ -132,11 +139,15 @@ No error handling:
   });
 </script>
 ```
-</details>
 
 Step 3:
 
 Simply insert where you want it:
 `<GitHubTable {contributions} />`
+
+
+</details>
+
+
 
 Note that the CSS is for dark mode and is not complete depending on your usage. CSS is simply not my forte.
