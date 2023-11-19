@@ -8,7 +8,7 @@
      const unsubscribe = contributionsStore.subscribe((data) => {
                contributions = data;
           });
-
+    // You may want to remove logging but it's nice to see when it populates the container with cells.
      onMount(() => {
               console.log('GitHubTable mounted with contributions:', get(contributionsStore));
          });
