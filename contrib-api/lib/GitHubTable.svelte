@@ -1,22 +1,36 @@
 <script>
-  export let contributions = [];
-  // Calculate weeks. 53x7 (-1 day)
-  let requiredWeeks = Math.ceil(contributions.length / 7);
-  // Dynamic array (hopefully)
-  let weeks = Array.from({ length: requiredWeeks }, () => new Array(7).fill(null));
-  // Populates the weeks
-  contributions.forEach((contribution, index) => {
-    if (index < contributions.length) {
-      const weekIndex = Math.floor(index / 7);
-      const dayIndex = index % 7;
-      weeks[weekIndex][dayIndex] = contribution;
-    }
-  });
-  // Calculate the total contributions
-  $: totalContributions = contributions.reduce((total, contribution) => {
-    return total + (contribution?.count || 0);
-  }, 0);
-</script>
+  import { contributionsStore } from '$lib/store.ts'; // Don't forget to modify your store.ts (or store.js)
+  import { onMount, beforeUpdate, onDestroy } from 'svelte';
+  import { get } from 'svelte/store';
+
+  let contributions = [];
+
+     const unsubscribe = contributionsStore.subscribe((data) => {
+               contributions = data;
+          });
+
+     onMount(() => {
+              console.log('GitHubTable mounted with contributions:', get(contributionsStore));
+         });
+
+     beforeUpdate(() => {
+              console.log('GitHubTable updating with contributions:', contributions);
+         });
+
+      onDestroy(() => { 
+             unsubscribe();
+         });
+ 
+    $: weeks = contributions.length > 0 
+    ? Array.from({ length: Math.ceil(contributions.length / 7) }, (_, weekIndex) => 
+         contributions.slice(weekIndex * 7, (weekIndex + 1) * 7)
+       ) 
+    : [];
+
+    $: totalContributions = contributions.reduce((total, contribution) => {
+        return total + (contribution?.count || 0);
+     }, 0);
+  </script>
 
 <style>
   :global(body) {
