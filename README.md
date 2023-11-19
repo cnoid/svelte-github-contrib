@@ -30,6 +30,11 @@ The scraper is easiest because you can simply use the one [he is hosting on Verc
 <details>
   <summary>Expand</summary>
 
+```js
+$lib/store.ts
+import { writable } from 'svelte/store';
+export const contributionsStore = writable([]);
+```
   
   ```js
   <!-- The rest of your header/imports -->
