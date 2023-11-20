@@ -11,6 +11,10 @@ Display GitHub contributions in Sveltekit
 
 ![image](https://github.com/cnoid/svelte-github-contrib/blob/6f6358db6157362efb4561744e1ce5a9b988b23b/contrib-api.png)
 
+![image](https://github.com/cnoid/svelte-github-contrib/blob/abcc48695215c51e0b95e378c383155a17a474b3/contrib-api-customizable.png)
+
+Customizable as well.
+
 Runs using [GitHub Contributions API](https://github.com/mattcroat/github-contributions-api) - Dockerfile is in this repo if you want to run it containerized, just place it in the folder after cloning and run docker build.
 
 
