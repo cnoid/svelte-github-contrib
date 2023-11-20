@@ -53,7 +53,7 @@
   .contributions-header {
   position: absolute;
   top: -20px; 
-  left: 0; 
+  left: 15; 
   font-size: 12px;
   font-weight: 600;
 }
