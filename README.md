@@ -1,6 +1,8 @@
 # svelte-github-contrib
 Display GitHub contributions in Sveltekit
 
+[Live Demo](https://ei.vin/d/projects)
+
 <details>
   <summary>Matia's scraper</summary>
 
